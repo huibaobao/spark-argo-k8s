@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-spark-application
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/huibaobao/spark-argo-k8s.git
+    targetRevision: HEAD
+    path: pyspark-app # path within your repo where Spark application manifests are located
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: spark
+  syncPolicy:
+    automated: {}
+

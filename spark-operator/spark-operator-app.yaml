@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-spark-operator
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/huibaobao/spark-argo-k8s.git
+    targetRevision: HEAD
+    path: spark-operator
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: spark
+  syncPolicy:
+    automated: {}
