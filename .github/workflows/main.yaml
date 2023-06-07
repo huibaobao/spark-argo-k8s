@@ -25,6 +25,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ./pyspark-app
           push: true
           tags: jessicahuangnyc/demo-spark-job:v1.0.0
