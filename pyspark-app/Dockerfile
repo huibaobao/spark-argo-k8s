@@ -1,4 +1,4 @@
-ARG SPARK_IMAGE=gcr.io/spark-operator/spark-py:v3.1.1
+RG SPARK_IMAGE=gcr.io/spark-operator/spark-py:v3.1.1
 FROM ${SPARK_IMAGE}
 # Switch to user root so we can add additional jars and configuration files.
 USER root
