@@ -27,3 +27,4 @@ jobs:
         with:
           context: .
           push: true
+          tags: jessicahuangnyc/demo-spark-job:v1.0.0
