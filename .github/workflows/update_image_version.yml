@@ -16,7 +16,7 @@ jobs:
 
       - name: Update Docker image version
         run: |
-          commit_sha=${GITHUB_SHA::7}
+          commit_sha=${GITHUB_SHA}
 
           sed -i -e "s|image: \"jessicahuangnyc/demo-spark-job:.*\"|image: \"jessicahuangnyc/demo-spark-job:${commit_sha}\"|g" pyspark-app/spark-job-demo.yaml
 
