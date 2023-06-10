@@ -31,4 +31,4 @@ jobs:
           context: ./pyspark-app
           platforms: linux/amd64,linux/arm64/v8
           push: true
-          tags: jessicahuangnyc/demo-spark-job:${{ github.sha.substring(0, 7) }}
+          tags: jessicahuangnyc/demo-spark-job:${{ github.sha }}
