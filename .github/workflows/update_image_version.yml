@@ -25,3 +25,6 @@ jobs:
           git add pyspark-app/spark-job-demo.yaml
           git commit -m "Automatically updating Docker image version to ${commit_sha}"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+  
