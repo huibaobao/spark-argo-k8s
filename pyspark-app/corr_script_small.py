@@ -3,12 +3,12 @@ from pyspark.sql import Row
 from pyspark.sql.functions import corr, lit
 
 spark = SparkSession.builder.getOrCreate()
-inputs = spark.sparkContext.parallelize(range(50))
+inputs = spark.sparkContext.parallelize(range(60))
 
 def generate_rows(input_val):
     rows = []
-    for i in range(10000):
-        rows.append(Row(value=float(input_val * 10000 + i)))
+    for i in range(1000):
+        rows.append(Row(value=float(input_val * 1000 + i)))
     return rows
 
 df = inputs.flatMap(generate_rows).toDF()
@@ -30,4 +30,3 @@ df = df.withColumn('corr_value_squared', lit(corr_value_squared))
 
 print("*****************number of rows****************", df.count())
 # Show the updated DataFrame
-df.show()

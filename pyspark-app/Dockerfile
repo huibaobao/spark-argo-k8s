@@ -3,7 +3,7 @@ FROM ${SPARK_IMAGE}
 # Switch to user root so we can add additional jars and configuration files.
 USER root
 # Copy the corr.py file into the Docker image
-COPY corr_50.py /opt/spark/examples/src/main/python/corr_50.py
+COPY corr_script_small.py /opt/spark/examples/src/main/python/corr_script_small.py
 # Setup dependencies for Google Cloud Storage access.
 RUN rm $SPARK_HOME/jars/guava-14.0.1.jar
 ADD https://repo1.maven.org/maven2/com/google/guava/guava/23.0/guava-23.0.jar $SPARK_HOME/jars

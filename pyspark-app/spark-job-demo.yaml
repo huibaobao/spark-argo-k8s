@@ -14,7 +14,7 @@ spec:
   mode: cluster
   image: "jessicahuangnyc/demo-spark-job:v1.0.0"
   imagePullPolicy: Always
-  mainApplicationFile: "local:///opt/spark/examples/src/main/python/corr_50.py"
+  mainApplicationFile: "local:///opt/spark/examples/src/main/python/corr_script_small.py"
   sparkVersion: "3.1.1"
   restartPolicy:
     type: OnFailure
