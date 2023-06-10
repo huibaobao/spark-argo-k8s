@@ -1,0 +1,26 @@
+# .github/workflows/update_image_version.yml
+name: Update Docker Image Version in Spark Application Configuration
+
+on:
+  workflow_run:
+    workflows: ["Build and Push Docker Image"]  # The name of your build and push workflow
+    types: 
+      - completed
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Update Docker image version
+        run: |
+          commit_sha=$GITHUB_SHA
+
+          sed -i -e "s|image: jessicahuangnyc/demo-spark-job:.*|image: jessicahuangnyc/demo-spark-job:${commit_sha}|g" pyspark-app/spark-job-demo.yaml
+
+          git config --local user.email "hjessica@gmail.com"
+          git config --local user.name "huibaobao"
+          git commit -am "Automatically updating Docker image version to ${commit_sha}"
+          git push
