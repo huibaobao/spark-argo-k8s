@@ -15,7 +15,7 @@ jobs:
 
       - name: Update Docker image version
         env:
-          MY_PAT: ${{ secrets.MY_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           commit_sha=${GITHUB_SHA}
           sed -i -e "s|image: \"jessicahuangnyc/demo-spark-job:.*\"|image: \"jessicahuangnyc/demo-spark-job:${commit_sha}\"|g" pyspark-app/spark-job-demo.yaml
@@ -23,7 +23,7 @@ jobs:
           git config --local user.name "huibaobao"
           git add pyspark-app/spark-job-demo.yaml
           git commit -m "Automatically updating Docker image version to ${commit_sha}"
-          git push https://huibaobao:${MY_PAT}@github.com/huibaobao/spark-argo-k8s.git
+          git push https://${GITHUB_TOKEN}@github.com/huibaobao/spark-argo-k8s.git
 
      
 
