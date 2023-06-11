@@ -12,7 +12,7 @@ spec:
   type: Python
   pythonVersion: "3"
   mode: cluster
-  image: "jessicahuangnyc/demo-spark-job:240b7a065274715b5b73a11b3d02ca8f9b3128ba"
+  image: "jessicahuangnyc/demo-spark-job:0f84e703cc0df81709cb579aac9acf9e39d42145"
   imagePullPolicy: Always
   mainApplicationFile: "local:///opt/spark/examples/src/main/python/corr_50.py"
   sparkVersion: "3.1.1"
