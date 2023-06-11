@@ -25,7 +25,6 @@ jobs:
           git add pyspark-app/spark-job-demo.yaml
           git commit -m "Automatically updating Docker image version to ${commit_sha}"
           git remote set-url origin https://x-access-token:${{ secrets.MY_PAT }}@github.com/${{ github.repository }}
-          git push https://huibaobao:${{ secrets.MY_PAT }}@github.com/${{ github.repository }} HEAD:main
-
+          git push
      
 
